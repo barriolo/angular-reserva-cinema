@@ -7,10 +7,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UpcomingService } from './core/services/upcoming.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BuscarCepService } from './core/services/buscar-cep.service';
+import { EnderecoComponent } from './shared/components/forms/endereco/endereco.component';
+import { AcompanhanteComponent } from './shared/components/forms/acompanhante/acompanhante.component';
+import { MovieCardComponent } from './shared/components/cards/movie-card/movie-card.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EnderecoComponent,
+    AcompanhanteComponent,
+    MovieCardComponent
   ],
   imports: [
     BrowserModule,
