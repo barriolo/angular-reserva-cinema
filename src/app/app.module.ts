@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UpcomingService } from './core/services/upcoming.service';
 import { HttpClientModule } from '@angular/common/http';
+import { BuscarCepService } from './core/services/buscar-cep.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [
-    UpcomingService
+    UpcomingService,
+    BuscarCepService
   ],
   bootstrap: [AppComponent]
 })
