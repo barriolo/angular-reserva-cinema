@@ -10,6 +10,7 @@ import { BuscarCepService } from './core/services/buscar-cep.service';
 import { EnderecoComponent } from './shared/components/forms/endereco/endereco.component';
 import { AcompanhanteComponent } from './shared/components/forms/acompanhante/acompanhante.component';
 import { MovieCardComponent } from './shared/components/cards/movie-card/movie-card.component';
+import { UpcomingModule } from './modules/upcoming/upcoming.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MovieCardComponent } from './shared/components/cards/movie-card/movie-c
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    UpcomingModule
   ],
   providers: [
     UpcomingService,

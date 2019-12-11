@@ -13,4 +13,5 @@ export class UpcomingMovie {
   vote_average: number;
   overview: string;
   release_date: string;
+  genres: any[] = [];
 }
