@@ -4,17 +4,30 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UpcomingService } from './core/services/upcoming.service';
+import { HttpClientModule } from '@angular/common/http';
+import { BuscarCepService } from './core/services/buscar-cep.service';
+import { EnderecoComponent } from './shared/components/forms/endereco/endereco.component';
+import { AcompanhanteComponent } from './shared/components/forms/acompanhante/acompanhante.component';
+import { MovieCardComponent } from './shared/components/cards/movie-card/movie-card.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EnderecoComponent,
+    AcompanhanteComponent,
+    MovieCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    UpcomingService,
+    BuscarCepService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
