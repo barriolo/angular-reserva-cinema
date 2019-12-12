@@ -4,11 +4,11 @@
       <h2>{{ dataMovies?.title }} ({{ dataMovies?.release_date | date: 'yyyy' }})</h2>
       <div class="tags" fxLayout="row">
         <div *ngFor="let genre of dataMovies.genres">
-          <span class="fantasy">{{ genre?.name }}</span>
+          <span class="fantasy">{{ genre?.name | truncate: 10 }}</span>
         </div>
       </div>
       <div class="info">
-        <p>{{ (dataMovies?.overview | truncate) || 'Não possui descrição'}}</p>
+        <p>{{ (dataMovies?.overview | truncate: 150) || 'Não possui descrição'}}</p>
       </div>
       <div class="star">
         <h4>Cast</h4>

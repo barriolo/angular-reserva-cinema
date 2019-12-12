@@ -5,10 +5,10 @@ import {Pipe, PipeTransform} from '@angular/core';
 })
 export class TruncatePipe implements PipeTransform {
 
-  transform(str: string): string {
-    const takeFirst1 = str.substring(0, 150);
+  transform(str: string, numberTruncate: number): string {
+    const takeFirst1 = str.substring(0, numberTruncate);
 
-    if (str.length > 200) {
+    if (str.length > numberTruncate) {
       return takeFirst1.trim().concat('...');
     }
 
