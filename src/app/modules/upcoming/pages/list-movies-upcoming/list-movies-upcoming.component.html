@@ -1,1 +1,6 @@
-<p>list-movies-upcoming works!</p>
+<div class="container" fxLayout="row wrap" fxLayout.xs="column"  fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="start center">
+  <div *ngFor="let movie of upcomingList">
+      <!-- {{movie?.title }} -->
+      <app-movie-card [dataMovies]="movie"></app-movie-card>
+  </div>
+</div>
