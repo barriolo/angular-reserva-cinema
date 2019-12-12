@@ -9,8 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BuscarCepService } from './core/services/buscar-cep.service';
 import { UpcomingModule } from './modules/upcoming/upcoming.module';
 import { CardsModule } from './shared/components/cards/cards.module';
-import {FlexLayoutModule} from '@angular/flex-layout';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatToolbarModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     HttpClientModule,
     UpcomingModule,
     CardsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatToolbarModule
   ],
   providers: [
     UpcomingService,
