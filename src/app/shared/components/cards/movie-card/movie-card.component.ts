@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-movie-card',
@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieCardComponent implements OnInit {
 
+  @Input() dataMovies;
+
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
+  detailMovie(movie) {
+    console.log('aqui o filme=>', movie);
+  }
 }

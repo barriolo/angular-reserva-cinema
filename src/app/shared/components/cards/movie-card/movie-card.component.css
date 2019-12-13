@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+
+.card {
+  transform: translate(5%, 5%);
+  background: #000;
+  overflow: hidden;
+  box-shadow: 0 5px 10px rgba(0,0,0, 0.5);
+  width: 300px;
+  height: 450px;
+  margin: 10px;
+}
+
+.card .poster {
+  position: relative;
+  overflow: hidden;
+}
+
+.card .poster:before {
+  content: "";
+  position: absolute ;
+  bottom: -190px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg,#000 50%, transparent);
+  transition: 0.5s;
+  z-index: 1;
+}
+
+.card:hover .poster:before {
+  bottom: 0;
+}
+
+.card .poster img {
+  width: 100%;
+  transition: 0.5s;
+}
+
+.card:hover .poster img {
+  filter: blur(2px);
+  transform: translateY(-30px);
+}
+
+.details {
+  position: absolute;
+  padding: 20px;
+  width: 100%;
+  height: 74%;
+  bottom: -190px;
+  left: 0;
+  box-sizing: border-box;
+  transition: 0.5s;
+  z-index: 2;
+}
+
+.card:hover .details {
+  bottom: 50px;
+}
+
+.details h2 {
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  margin-bottom: 15px;
+  height: 40px;
+}
+
+.tags {
+  position: relative;
+  margin-bottom: 50px;
+  top: 25px;
+}
+
+.tags span {
+  padding: 2px 5px;
+  margin-right: 5px;
+  color: #fff;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tags span.genre3 {
+  background: #7206f7;
+}
+
+.tags span.genre2 {
+  background: #f70661;
+}
+
+.tags span.genre1 {
+  background: #069ff7;
+}
+
+.info {
+  color: #fff;
+}
+
+.info p {
+  height: 90px;
+  margin: 15px, 0, 10px;
+}
+
+.progress {
+  margin-top: 30px
+}

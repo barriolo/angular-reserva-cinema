@@ -19,14 +19,14 @@ export class UpcomingService extends ApiMoviedb {
    getUpcomingMovies() {
      return this.http.get(`${this.baseUrl}movie/upcoming?api_key=${this.apiKey}&language=pt-Br&page=1`)
       .pipe(
-        map((res: UpcomingMovie[]) => res)
+        map((res: any) => res.results)
       );
    }
 
    getGenres() {
     return this.http.get(`${this.baseUrl}genre/movie/list?api_key=${this.apiKey}&language=pt-Br&page=1`)
      .pipe(
-       map((res: Genres[]) => res)
+       map((res: any) => res.genres)
      );
   }
 }
