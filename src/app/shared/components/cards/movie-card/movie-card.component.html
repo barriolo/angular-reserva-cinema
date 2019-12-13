@@ -1,17 +1,36 @@
-<div class="card">
+<div class="card" (click)="detailMovie(dataMovies)">
     <div class="poster"><img src="https://image.tmdb.org/t/p/original{{dataMovies?.poster_path}}"></div>
     <div class="details">
       <h2>{{ dataMovies?.title }} ({{ dataMovies?.release_date | date: 'yyyy' }})</h2>
       <div class="tags" fxLayout="row">
-        <div *ngFor="let genre of dataMovies.genres">
-          <span class="fantasy">{{ genre?.name | truncate: 10 }}</span>
+        <div *ngFor="let genre of dataMovies.genres; let i= index">
+          <span [ngClass]="{
+            'genre1': i === 0, 
+            'genre2': i === 1, 
+            'genre3': i === 2
+          }" *ngIf="i < 3">{{ genre?.name | truncate: 10 }}</span>
         </div>
       </div>
       <div class="info">
         <p>{{ (dataMovies?.overview | truncate: 150) || 'Não possui descrição'}}</p>
       </div>
       <div class="star">
-        <h4>Cast</h4>
-      </div>
+        <circle-progress
+          [backgroundColor]="'#081C22'"
+          [radius]="20"
+          [percent]="dataMovies?.vote_average*10"
+          [maxPercent]="100"
+          [unitsFontSize]="14"
+          [unitsColor]="'#fff7ff'"
+          [outerStrokeWidth]= "5"
+          [outerStrokeColor]= "'#20D07A'"
+          [innerStrokeColor]= "'#FFFFFF'"
+          [titleColor]="'#fffef9'"
+          [titleFontSize]= "14"
+          [subtitleColor]= "'#483500'"
+          [showSubtitle]= "false"
+          [showInnerStroke]= "false"
+          [startFromZero]="false"
+        ></circle-progress>      </div>
     </div>
   </div>

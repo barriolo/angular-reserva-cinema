@@ -62,6 +62,8 @@
   margin: 0;
   padding: 0;
   font-size: 20px;
+  margin-bottom: 15px;
+  height: 50px;
 }
 
 .details h2 span {
@@ -87,23 +89,28 @@
 
 .tags {
   position: relative;
-  margin-top: 10px;
+  margin-bottom: 40px;
+  top: 25px;
 }
 
 .tags span {
   padding: 2px 5px;
-  margin-right: 4px;
+  margin-right: 5px;
   color: #fff;
   display: inline-block;
   border-radius: 4px;
 }
 
-.tags span.fantasy {
+.tags span.genre3 {
   background: #7206f7;
 }
 
-.tags span.scifi {
+.tags span.genre2 {
   background: #f70661;
+}
+
+.tags span.genre1 {
+  background: #069ff7;
 }
 
 .info {

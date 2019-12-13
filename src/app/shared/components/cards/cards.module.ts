@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PipesModule } from '../pipes/pipes.module';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 
 
@@ -13,7 +14,9 @@ import { PipesModule } from '../pipes/pipes.module';
   imports: [
     CommonModule,
     FlexLayoutModule,
-    PipesModule
+    PipesModule,
+    NgCircleProgressModule.forRoot({
+    })
   ],
   exports: [
     MovieCardComponent

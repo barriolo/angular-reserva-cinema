@@ -13,4 +13,7 @@ export class MovieCardComponent implements OnInit {
 
   ngOnInit() {}
 
+  detailMovie(movie) {
+    console.log('aqui o filme=>', movie);
+  }
 }
