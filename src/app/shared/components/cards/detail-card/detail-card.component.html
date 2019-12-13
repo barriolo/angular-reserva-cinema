@@ -1,3 +1,47 @@
-<app-modal [titulo]="'teste'" (onClose)="closeModal($event)">
-
+<app-modal [titulo]="data?.title" (onClose)="closeModal()">
+    <div class="card">
+      <img class="poster" src="https://image.tmdb.org/t/p/original{{data?.backdrop_path}}">
+      <div class="details">
+        <div>
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <h2>{{ data?.title }} - {{ data?.release_date | date: 'dd/MM/yyyy' }}</h2>
+            <circle-progress
+              [backgroundColor]="'#081C22'"
+              [radius]="25"
+              [percent]="data?.vote_average*10"
+              [maxPercent]="100"
+              [unitsFontSize]="14"
+              [unitsColor]="'#fff7ff'"
+              [outerStrokeWidth]= "5"
+              [outerStrokeColor]= "'#20D07A'"
+              [innerStrokeColor]= "'#FFFFFF'"
+              [titleColor]="'#fffef9'"
+              [titleFontSize]= "14"
+              [subtitleColor]= "'#483500'"
+              [showSubtitle]= "false"
+              [showInnerStroke]= "false"
+              [startFromZero]="false"
+            ></circle-progress>
+          </div>
+          <div class="tags" fxLayout="row">
+            <div *ngFor="let genre of data.genres; let i= index">
+              <span [ngClass]="{
+                'genre1': i === 0, 
+                'genre2': i === 1, 
+                'genre3': i === 2
+              }" *ngIf="i < 3">{{ genre?.name | truncate: 10 }}</span>
+            </div>
+          </div>
+          <div class="info" fxHide.xs>
+            <p>{{ (data?.overview) || 'Não possui descrição'}}</p>
+          </div>
+          <div class="info" fxShow.xs fxHide.lg>
+            <p>{{ (data?.overview | truncate: 140) || 'Não possui descrição'}}</p>
+          </div>
+        </div>
+      </div>
+      <div FxLayout="row" fxLayoutAlign="center center">
+        <button class="btn-reserve" mat-button color="accent" (click)="goToreserve()">Reservar</button>    
+      </div>
+    </div>
 </app-modal>

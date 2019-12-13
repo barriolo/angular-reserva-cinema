@@ -2,7 +2,7 @@
     <div class="poster" (click)="detailMovie(dataMovies)"><img src="https://image.tmdb.org/t/p/original{{dataMovies?.poster_path}}"></div>
     <div class="details">
       <div (click)="detailMovie(dataMovies)">
-        <h2>{{ dataMovies?.title }} ({{ dataMovies?.release_date | date: 'yyyy' }})</h2>
+        <h2>{{ dataMovies?.title }} - {{ dataMovies?.release_date | date: 'dd/MM/yyyy' }}</h2>
         <div class="tags" fxLayout="row">
           <div *ngFor="let genre of dataMovies.genres; let i= index">
             <span [ngClass]="{

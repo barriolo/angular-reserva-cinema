@@ -17,8 +17,11 @@ export class DetailCardComponent implements OnInit {
   ngOnInit() {
   }
 
-  closeModal(event) {
-    console.log(this.data);
+  closeModal() {
     this.dialogRef.close();
+  }
+
+  goToreserve() {
+
   }
 }

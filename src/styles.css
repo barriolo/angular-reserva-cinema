@@ -17,3 +17,8 @@ body {
 .mat-form-field-appearance-outline .mat-form-field-outline {
   color: rgba(254, 144, 0, 0.384);
 }
+
+.modal-wiz >  mat-dialog-container {
+  padding: 0px;
+  margin: 0px;
+}

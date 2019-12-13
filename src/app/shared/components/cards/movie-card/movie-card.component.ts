@@ -19,10 +19,11 @@ export class MovieCardComponent implements OnInit {
   detailMovie(movie) {
     let dialogRef: any;
     dialogRef = this.dialog.open(DetailCardComponent, {
-      width: '80%',
+      width: '600px',
       height: 'auto',
-      disableClose: true,
-      data: this.dataMovies
+      disableClose: false,
+      data: this.dataMovies,
+      panelClass: 'modal-wiz'
     },
     );
   }
