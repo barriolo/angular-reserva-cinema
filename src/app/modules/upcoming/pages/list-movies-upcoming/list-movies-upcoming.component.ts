@@ -14,6 +14,7 @@ export class ListMoviesUpcomingComponent implements OnInit, OnDestroy {
   upcomingList: UpcomingMovie[];
   sub: any;
   genresList: Genres[];
+  search: string;
   constructor(
     private serviceUpcoming: UpcomingService
   ) { }
