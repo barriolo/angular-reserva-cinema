@@ -7,9 +7,13 @@ html, body {
 body { 
   margin: 0; 
   font-family: Roboto, "Helvetica Neue", sans-serif; 
+  background-color: #ece7e7d0;
 }
 
 .mat-form-field:not(.mat-form-field-has-label) .mat-form-field-infix {
   border-top-width: 3px;
   border-bottom-width: 3px;
+}
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: rgba(254, 144, 0, 0.384);
 }

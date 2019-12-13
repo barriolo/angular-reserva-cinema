@@ -4,13 +4,16 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PipesModule } from '../pipes/pipes.module';
 import { NgCircleProgressModule } from 'ng-circle-progress';
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule, MatDialogModule } from '@angular/material';
+import { DetailCardComponent } from './detail-card/detail-card.component';
+import { CommonComponentsModule } from '../common/common.module';
 
 
 
 @NgModule({
   declarations: [
     MovieCardComponent,
+    DetailCardComponent,
   ],
   imports: [
     CommonModule,
@@ -18,7 +21,9 @@ import { MatButtonModule } from '@angular/material';
     PipesModule,
     NgCircleProgressModule.forRoot({
     }),
-    MatButtonModule
+    MatButtonModule,
+    CommonComponentsModule,
+    MatDialogModule
   ],
   exports: [
     MovieCardComponent

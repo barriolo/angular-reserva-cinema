@@ -1,18 +1,20 @@
-<div class="card" (click)="detailMovie(dataMovies)">
-    <div class="poster"><img src="https://image.tmdb.org/t/p/original{{dataMovies?.poster_path}}"></div>
+<div class="card">
+    <div class="poster" (click)="detailMovie(dataMovies)"><img src="https://image.tmdb.org/t/p/original{{dataMovies?.poster_path}}"></div>
     <div class="details">
-      <h2>{{ dataMovies?.title }} ({{ dataMovies?.release_date | date: 'yyyy' }})</h2>
-      <div class="tags" fxLayout="row">
-        <div *ngFor="let genre of dataMovies.genres; let i= index">
-          <span [ngClass]="{
-            'genre1': i === 0, 
-            'genre2': i === 1, 
-            'genre3': i === 2
-          }" *ngIf="i < 3">{{ genre?.name | truncate: 10 }}</span>
+      <div (click)="detailMovie(dataMovies)">
+        <h2>{{ dataMovies?.title }} ({{ dataMovies?.release_date | date: 'yyyy' }})</h2>
+        <div class="tags" fxLayout="row">
+          <div *ngFor="let genre of dataMovies.genres; let i= index">
+            <span [ngClass]="{
+              'genre1': i === 0, 
+              'genre2': i === 1, 
+              'genre3': i === 2
+            }" *ngIf="i < 3">{{ genre?.name | truncate: 10 }}</span>
+          </div>
         </div>
-      </div>
-      <div class="info">
-        <p>{{ (dataMovies?.overview | truncate: 150) || 'Não possui descrição'}}</p>
+        <div class="info">
+          <p>{{ (dataMovies?.overview | truncate: 150) || 'Não possui descrição'}}</p>
+        </div>
       </div>
       <div class="progress" fxLayout="column">
         <circle-progress
@@ -32,7 +34,7 @@
           [showInnerStroke]= "false"
           [startFromZero]="false"
         ></circle-progress>
-        <button mat-button color="accent">Reservar</button>    
+        <button mat-button color="accent" (click)="goToreserve()">Reservar</button>    
       </div>
     </div>
   </div>
