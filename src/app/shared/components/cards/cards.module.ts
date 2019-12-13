@@ -4,6 +4,7 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PipesModule } from '../pipes/pipes.module';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { MatButtonModule } from '@angular/material';
 
 
 
@@ -16,7 +17,8 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     FlexLayoutModule,
     PipesModule,
     NgCircleProgressModule.forRoot({
-    })
+    }),
+    MatButtonModule
   ],
   exports: [
     MovieCardComponent

@@ -14,7 +14,7 @@
       <div class="info">
         <p>{{ (dataMovies?.overview | truncate: 150) || 'Não possui descrição'}}</p>
       </div>
-      <div class="star">
+      <div class="progress" fxLayout="column">
         <circle-progress
           [backgroundColor]="'#081C22'"
           [radius]="20"
@@ -31,6 +31,8 @@
           [showSubtitle]= "false"
           [showInnerStroke]= "false"
           [startFromZero]="false"
-        ></circle-progress>      </div>
+        ></circle-progress>
+        <button mat-button color="accent">Reservar</button>    
+      </div>
     </div>
   </div>
