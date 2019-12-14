@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { DetailCardComponent } from '../detail-card/detail-card.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-card',
@@ -12,6 +13,7 @@ export class MovieCardComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
+    private router: Router
   ) { }
 
   ngOnInit() {}
@@ -29,6 +31,6 @@ export class MovieCardComponent implements OnInit {
   }
 
   goToreserve() {
-    console.log('aqui dentro do metodo');
+    this.router.navigate([`/reserve-movie/${this.dataMovies.id}/${this.dataMovies.title}`]);
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { UpcomingMovie } from 'src/app/core/models/upcoming-model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-detail-card',
@@ -11,7 +12,8 @@ export class DetailCardComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<DetailCardComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: UpcomingMovie
+    @Inject(MAT_DIALOG_DATA) public data: UpcomingMovie,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -22,6 +24,6 @@ export class DetailCardComponent implements OnInit {
   }
 
   goToreserve() {
-
+    this.router.navigate([`/reserve-movie/${this.data.id}/${this.data.title}`]);
   }
 }
