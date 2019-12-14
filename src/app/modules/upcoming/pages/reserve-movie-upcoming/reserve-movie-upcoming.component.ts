@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { GlobalValidator } from '../../../../shared/validators/validators-email';
 @Component({
   selector: 'app-reserve-movie-upcoming',
   templateUrl: './reserve-movie-upcoming.component.html',
@@ -11,9 +11,11 @@ export class ReserveMovieUpcomingComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-  ) { }
+  ) {
+   }
 
   ngOnInit() {
+    this.setFormReserve();
   }
 
   setFormReserve() {
@@ -22,7 +24,11 @@ export class ReserveMovieUpcomingComponent implements OnInit {
       lastName: [],
       cpf: [],
       birthdayDate: [],
-      email: []
+      email: ['', Validators.compose([Validators.required, GlobalValidator.emailValidator])]
     });
+  }
+
+  saveReserve() {
+    console.log(this.reserveForm);
   }
 }
