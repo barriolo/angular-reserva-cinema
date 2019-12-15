@@ -11,9 +11,11 @@ import { UpcomingService } from 'src/app/core/services/upcoming.service';
 export class ReserveMovieUpcomingComponent implements OnInit {
   reserveForm: FormGroup;
   isCompanion: boolean = false;
-  idMovie: any;
-  nameMovie: any;
-  imagePoster: any;
+  idMovie: number;
+  nameMovie: string;
+  imagePoster: string;
+  valorMovie: number;
+  frete: number;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -29,6 +31,8 @@ export class ReserveMovieUpcomingComponent implements OnInit {
       this.nameMovie = params['title'];
     });
     this.getImages();
+    this.valorMovie = Math.floor(Math.random() * (100 - 20) + 20);
+    this.frete = 10;
   }
 
   setFormReserve() {
@@ -51,7 +55,8 @@ export class ReserveMovieUpcomingComponent implements OnInit {
 
   getImages() {
     this.serviceReserve.getImagesByMovie(this.idMovie).subscribe((res: any) => {
-      this.imagePoster = res.posters;
+      this.imagePoster = res.posters[0].file_path;
     });
   }
+
 }
