@@ -79,7 +79,7 @@
           </div>
           <div fxLayout="row" fxLayoutAlign="space-between center" class="content-total">
             <p class="sub-title-total">Total</p>
-            <p class="valor-filme">R$ {{valorMovie + frete}}</p>
+            <p class="valor-filme" *ngIf="!isCompanion">R$ {{valorMovie + frete}}</p>
             <p class="valor-filme" *ngIf="isCompanion">R$ {{valorMovie * 2 + frete}}</p>
           </div>
         </div>
