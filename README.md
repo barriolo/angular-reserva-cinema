@@ -1,27 +1,38 @@
-# AngularReservaCinema
+# Projeto Frontend teste Wiz
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.1.
+[![Versões](https://img.shields.io/badge/angular-8-green)](https://img.shields.io/badge/angular-8-green)
+[![Versões](https://img.shields.io/badge/Angular%20Cli-8.1.1-green)](https://img.shields.io/badge/Angular%20Cli-8.1.1-green)
+[![Versões](https://img.shields.io/badge/FlexLayout-8.0.0--beta.27-orange)](https://img.shields.io/badge/FlexLayout-8.0.0--beta.27-orange)
+[![Versões](https://img.shields.io/badge/TypeScript-3.4.3-blue)](https://img.shields.io/badge/TypeScript-3.4.3-blue)
 
-## Development server
+## Download
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Acesse o link do [projeto](https://github.com/barriolo/angular-reserva-cinema) para baixar o mesmo.
 
-## Code scaffolding
+```bash
+https://github.com/barriolo/angular-reserva-cinema.git
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Instalação
+Para instalar as dependências acesse a pasta do projeto e execute o comando abaixo.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```bash
+npm install ou yarn install
+```
 
-## Running unit tests
+## Iniciando o Projeto
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+Acesse a pasta do repositório e execute o comando a baixo
 
-## Running end-to-end tests
+ng serve ou ng s
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Build do Projeto
 
-## Further help
+```bash
+Acesse a pasta do repositório e execute o comando a baixo
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+ng build --prod
+```

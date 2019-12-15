@@ -2,7 +2,7 @@
   <h2>Acompanhante 1</h2>
   <form [formGroup]="acompanhanteForm">
     <div fxLayout="column">
-      <div fxLayout="row" fxLayoutAlign="space-evenly center">
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-evenly center">
         <div class="field" fxFlex="50">
           <mat-form-field appearance="outline" class="field-100">
               <input matInput placeholder="Primeiro nome" formControlName="firtsName">
@@ -14,7 +14,7 @@
           </mat-form-field>
         </div>
       </div>
-      <div fxLayout="row">
+      <div fxLayout="row" fxLayout.xs="column">
         <div class="field" fxFlex="50">
           <mat-form-field appearance="outline" class="field-100">
               <input matInput placeholder="CPF" formControlName="cpf" mask="000.000.000-00">

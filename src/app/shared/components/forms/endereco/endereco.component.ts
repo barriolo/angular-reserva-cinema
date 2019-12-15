@@ -24,7 +24,6 @@ export class EnderecoComponent implements OnInit {
 
   ngOnInit() {
     this.form.emit(this.enderecoForm);
-    this.getEndereco();
   }
 
   setFormEndereco() {
@@ -38,14 +37,19 @@ export class EnderecoComponent implements OnInit {
     });
   }
 
-  getEndereco() {
-    this.enderecoForm.get('cep').valueChanges.subscribe((value) => {
-      if (value && value.length > 7) {
-        this.cepService.getCep(value).subscribe((res) => {
-          this.enderecoForm.patchValue(res);
-        });
-      }
-    });
+  getEndereco(cep) {
+    cep = cep.replace(/\D/g, '');
+    if (cep != null && cep !== '') {
+      this.cepService.getCep(cep)
+      .subscribe((res: any) => {
+        this.enderecoForm.patchValue(res);
+        if (res.error === true) {
+          const men = 'CEP inválido';
+          this.openSnackBar(men, '');
+          console.log('aqui =>', res );
+        }
+      });
+    }
   }
 
   openSnackBar(message: string, action: string) {

@@ -1,14 +1,14 @@
 <mat-card class="container">
   <div class="header-form">
     <h2>Formulário</h2>
-    <div fxLayout="row">
-      <div class="content-form" fxFlex="60">
+    <div fxLayout="row" fxLayout.xs="column">
+      <div class="content-form" fxFlex="65">
         <div class="header-dados-pessoais">
           <h3>Dados pessoais</h3>
         </div>
         <form [formGroup]="reserveForm">
           <div fxLayout="column">
-            <div fxLayout="row" fxLayoutAlign="space-evenly center">
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-evenly center">
               <div class="field" fxFlex="50">
                 <mat-form-field appearance="outline" class="field-100">
                     <input matInput placeholder="Primeiro nome" formControlName="firtsName">
@@ -20,7 +20,7 @@
                 </mat-form-field>
               </div>
             </div>
-            <div fxLayout="row">
+            <div fxLayout="row" fxLayout.xs="column">
               <div class="field" fxFlex="50">
                 <mat-form-field appearance="outline" class="field-100">
                     <input matInput placeholder="CPF" formControlName="cpf" mask="000.000.000-00">
@@ -48,15 +48,43 @@
 
         </form>
         <div fxLayout="row" fxLayoutAlign="end center" class="btn-salvar">
-          <button mat-raised-button color="primary" (click)="saveReserve()">Enviar</button>
+          <button mat-raised-button color="primary"[disabled]="!reserveForm?.valid" (click)="saveReserve()">Enviar</button>
         </div>
       </div>
-      <div class="content-checkout-payment"  fxFlex="40">
+      <div class="content-checkout-payment" fxFlex="35">
         <div class="header-ingresso">
           <h3>Seu Ingresso</h3>
         </div>
-        <span>teste</span>
+        <div class="container-ingresso" fxLayout="row" fxLayoutAlign="space-evenly start">
+          <img class="img-poster" src="https://image.tmdb.org/t/p/original{{imagePoster}}" alt="poster do filme selecionado">
+          <div fxLayout="column">
+            <h3 class="title-ingresso">Ingresso</h3>
+            <p>Filme: {{nameMovie}}</p>
+            <p class="valor-filme"><b>R$ {{valorMovie}}</b></p>
+          </div>
+        </div>
+        <div class="content-ingresso" fxLayout="column">
+          <div class="content-value">
+            <div fxLayout="row" fxLayoutAlign="space-between center" >
+              <p class="sub-title-value">Sub total</p>
+              <div fxLayout="column">
+                <p>R$ {{valorMovie}}</p>
+                <p *ngIf="isCompanion">R$ {{valorMovie}}</p>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between center" >
+              <p class="sub-title-value">Frete</p>
+              <p>R$ {{ frete }}</p>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="space-between center" class="content-total">
+            <p class="sub-title-total">Total</p>
+            <p class="valor-filme" *ngIf="!isCompanion">R$ {{valorMovie + frete}}</p>
+            <p class="valor-filme" *ngIf="isCompanion">R$ {{valorMovie * 2 + frete}}</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </mat-card>
+<app-loading *ngIf="loading"></app-loading>

@@ -4,6 +4,7 @@ import { UpcomingMovie } from './core/models/upcoming-model';
 import { BuscarCepService } from './core/services/buscar-cep.service';
 import { BuscaCep } from './core/models/busca-cep-model';
 import { Genres } from './core/models/genres-model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,18 @@ import { Genres } from './core/models/genres-model';
 export class AppComponent {
   title = 'Wiz Cinema';
 
-  constructor() {}
+  navegation = [
+    {title: 'Up Coming Movies', route: '/movies-upcoming'},
+  ];
 
+  constructor(
+    private router: Router
+  ) {
+
+  }
+
+  gotToNavigation(router) {
+    this.router.navigate([router]);
+  }
 
 }

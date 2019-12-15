@@ -1,3 +1,7 @@
+p {
+  padding: 0px;
+  margin: 0px;
+}
 .container {
   margin: 30px;
 }
@@ -47,4 +51,55 @@
 
 .header-form h2 {
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.container-ingresso {
+  margin: 20px;
+  border-bottom: #cfcece 1px solid;
+  padding-bottom: 15px;
+}
+
+.img-poster {
+  height: 150px;
+  background: linear-gradient(0deg,#000 100%);
+}
+
+.content-ingresso {
+  margin: 20px;
+  padding-bottom: 15px;
+}
+.container-ingresso h3 {
+  padding: 2px;
+  margin: 0px;
+}
+
+.container-ingresso p {
+  padding: 2px;
+}
+
+.valor-filme {
+  color: #3d59f5;
+  margin-top: 25px;
+}
+
+.content-value {
+  padding: 0px;
+}
+
+.content-ingresso p {
+  padding-bottom: 7px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.content-total {
+  padding-top: 25px;
+}
+
+.sub-title-value {
+  font-weight: 450;
+}
+
+.sub-title-total {
+  font-weight: 700;
 }
