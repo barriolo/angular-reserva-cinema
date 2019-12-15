@@ -16,7 +16,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { LoadingModule } from 'src/app/shared/components/loading/loading.module';
 
 
-
 @NgModule({
   declarations: [ListMoviesUpcomingComponent, ReserveMovieUpcomingComponent],
   imports: [
@@ -36,7 +35,7 @@ import { LoadingModule } from 'src/app/shared/components/loading/loading.module'
     NgxMaskModule.forRoot(),
     HttpClientModule,
     BrowserModule,
-    LoadingModule
+    LoadingModule,
   ],
   exports: [
     ListMoviesUpcomingComponent

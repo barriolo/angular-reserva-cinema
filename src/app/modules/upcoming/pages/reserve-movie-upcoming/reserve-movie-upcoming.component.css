@@ -49,6 +49,11 @@ p {
   padding: 10px;
 }
 
+.header-form {
+  padding-bottom: 40px;
+  border-bottom: #cfcece 1px solid;
+}
+
 .header-form h2 {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
@@ -102,4 +107,47 @@ p {
 
 .sub-title-total {
   font-weight: 700;
+}
+footer {
+  margin: 30px;
+  border-bottom: #cfcece 1px solid;
+}
+.title-section-footer {
+  color: #0654AE;
+}
+
+footer span {
+  padding: 5px;
+  color: #777676
+}
+
+.logo-footer {
+  width: 200px ;
+}
+
+.addres-footer {
+  margin-right: 40px;
+  text-align: left;
+}
+
+.redes-socias {
+  color: #777676;
+  font-weight: 500;
+}
+
+.logo-redes-footer{
+  width: 50px;
+  height: 50px;
+  color: #fff;
+  background-color: #0654AE;
+  margin: 5px;
+  border-radius: 100%
+}
+
+.content-redes-sociais {
+  margin-bottom: 30px;
+}
+.copyright {
+  position: absolute;
+  right: 25px;
 }

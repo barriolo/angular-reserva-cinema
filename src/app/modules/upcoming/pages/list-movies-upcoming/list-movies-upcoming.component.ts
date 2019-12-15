@@ -45,7 +45,7 @@ export class ListMoviesUpcomingComponent implements OnInit, OnDestroy {
   }
 
   getListGenres() {
-    this.serviceUpcoming.getGenres()
+    this.sub = this.serviceUpcoming.getGenres()
     .subscribe((res: Genres[]) => {
       this.genresList = res;
       this.upcomingList.map((item, index) => {
