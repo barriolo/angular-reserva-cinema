@@ -5,9 +5,11 @@ import { ReserveMovieUpcomingComponent } from './pages/reserve-movie-upcoming/re
 import { UpcomingService } from 'src/app/core/services/upcoming.service';
 import { CardsModule } from 'src/app/shared/components/cards/cards.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatInputModule, MatFormFieldModule, MatIconModule } from '@angular/material';
+import { MatInputModule, MatFormFieldModule, MatIconModule, MatCardModule, MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PipesModule } from 'src/app/shared/components/pipes/pipes.module';
+import { FormsComponentModule } from 'src/app/shared/components/forms/forms.module';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 
@@ -22,7 +24,12 @@ import { PipesModule } from 'src/app/shared/components/pipes/pipes.module';
     ReactiveFormsModule,
     FormsModule,
     MatIconModule,
-    PipesModule
+    PipesModule,
+    MatCardModule,
+    MatButtonModule,
+    FormsComponentModule,
+    MatCheckboxModule,
+    NgxMaskModule.forRoot()
   ],
   exports: [
     ListMoviesUpcomingComponent

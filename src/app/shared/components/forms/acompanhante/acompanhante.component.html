@@ -1,1 +1,36 @@
-<p>acompanhante works!</p>
+<div class="container">
+  <h2>Acompanhante 1</h2>
+  <form [formGroup]="acompanhanteForm">
+    <div fxLayout="column">
+      <div fxLayout="row" fxLayoutAlign="space-evenly center">
+        <div class="field" fxFlex="50">
+          <mat-form-field appearance="outline" class="field-100">
+              <input matInput placeholder="Primeiro nome" formControlName="firtsName">
+          </mat-form-field>
+        </div>
+        <div class="field" fxFlex="50">
+          <mat-form-field appearance="outline" class="field-100">
+              <input matInput placeholder="Último nome" formControlName="lastName">
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <div class="field" fxFlex="50">
+          <mat-form-field appearance="outline" class="field-100">
+              <input matInput placeholder="CPF" formControlName="cpf" mask="000.000.000-00">
+          </mat-form-field>
+        </div>
+        <div class="field" fxFlex="50">
+          <mat-form-field appearance="outline" class="field-100">
+              <input matInput placeholder="Data de nascimento" formControlName="birthdayDate">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="field" fxFlex="100">
+        <mat-form-field appearance="outline" class="field-100">
+          <input matInput placeholder="Email" formControlName="email">
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>

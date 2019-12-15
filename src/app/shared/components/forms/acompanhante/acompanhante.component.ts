@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-acompanhante',
@@ -24,11 +24,11 @@ export class AcompanhanteComponent implements OnInit {
 
   setFormAcompanhante() {
     this.acompanhanteForm = this.formBuilder.group({
-      firtsName: [],
-      lastName: [],
-      cpf: [],
-      birthdayDate: [],
-      email: []
+      firtsName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      cpf: ['', Validators.required],
+      birthdayDate: ['', Validators.required],
+      email: ['', Validators.required]
     });
   }
 }

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { UpcomingMovie } from '../models/upcoming-model';
 import { Genres } from '../models/genres-model';
+import { runInThisContext } from 'vm';
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +29,12 @@ export class UpcomingService extends ApiMoviedb {
      .pipe(
        map((res: any) => res.genres)
      );
+  }
+
+  getImagesByMovie(idMovie) {
+    return this.http.get(`${this.baseUrl}movie/${idMovie}/images?api_key=${this.apiKey}`)
+      .pipe(
+        map((res: any) => res)
+      )
   }
 }

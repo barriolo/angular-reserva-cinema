@@ -24,6 +24,7 @@ export class DetailCardComponent implements OnInit {
   }
 
   goToreserve() {
+    this.closeModal();
     this.router.navigate([`/reserve-movie/${this.data.id}/${this.data.title}`]);
   }
 }
