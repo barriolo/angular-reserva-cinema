@@ -1,0 +1,41 @@
+<div class="container">
+    <h2>Dados de Entrega</h2>
+    <form [formGroup]="enderecoForm">
+      <div fxLayout="column">
+        <div fxLayout="row" fxLayoutAlign="space-evenly center">
+          <div class="field" fxFlex="50">
+            <mat-form-field appearance="outline" class="field-100">
+                <input matInput placeholder="Cep" formControlName="cep" mask="00.000-000">
+            </mat-form-field>
+          </div>
+          <div class="field" fxFlex="50">
+            <mat-form-field appearance="outline" class="field-100">
+                <input matInput placeholder="Endereço" formControlName="logradouro">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="field" fxFlex="100">
+          <mat-form-field appearance="outline" class="field-100">
+            <input matInput placeholder="complemento" formControlName="complemento">
+          </mat-form-field>
+        </div>
+        <div fxLayout="row">
+          <div class="field" fxFlex="50">
+            <mat-form-field appearance="outline" class="field-100">
+                <input matInput placeholder="País" formControlName="country">
+            </mat-form-field>
+          </div>
+          <div class="field" fxFlex="50">
+            <mat-form-field appearance="outline" class="field-100">
+                <input matInput placeholder="Estado" formControlName="uf">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="field" fxFlex="100">
+          <mat-form-field appearance="outline" class="field-100">
+            <input matInput placeholder="Telefone" formControlName="telephone" mask="(00)0000?9-0000">
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+  </div>

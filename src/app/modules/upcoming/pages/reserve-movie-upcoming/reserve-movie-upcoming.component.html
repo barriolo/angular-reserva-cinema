@@ -1,1 +1,62 @@
-<p>reserve-movie-upcoming works!</p>
+<mat-card class="container">
+  <div class="header-form">
+    <h2>Formulário</h2>
+    <div fxLayout="row">
+      <div class="content-form" fxFlex="60">
+        <div class="header-dados-pessoais">
+          <h3>Dados pessoais</h3>
+        </div>
+        <form [formGroup]="reserveForm">
+          <div fxLayout="column">
+            <div fxLayout="row" fxLayoutAlign="space-evenly center">
+              <div class="field" fxFlex="50">
+                <mat-form-field appearance="outline" class="field-100">
+                    <input matInput placeholder="Primeiro nome" formControlName="firtsName">
+                </mat-form-field>
+              </div>
+              <div class="field" fxFlex="50">
+                <mat-form-field appearance="outline" class="field-100">
+                    <input matInput placeholder="Último nome" formControlName="lastName">
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout="row">
+              <div class="field" fxFlex="50">
+                <mat-form-field appearance="outline" class="field-100">
+                    <input matInput placeholder="CPF" formControlName="cpf" mask="000.000.000-00">
+                </mat-form-field>
+              </div>
+              <div class="field" fxFlex="50">
+                <mat-form-field appearance="outline" class="field-100">
+                    <input matInput placeholder="Data de nascimento" formControlName="birthdayDate">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="field" fxFlex="100">
+              <mat-form-field appearance="outline" class="field-100">
+                <input matInput placeholder="Email" formControlName="email">
+              </mat-form-field>
+            </div>
+            <div class="acompanhante">
+              <mat-checkbox (change)="haveCompanion()" color="primary" >Acompanhante</mat-checkbox>
+              <app-acompanhante (form)="reserveForm?.setControl('acompanhante', $event)" *ngIf="isCompanion"></app-acompanhante>
+            </div>
+            <div class="endereco">
+              <app-endereco (form)="reserveForm?.setControl('endereco', $event)"></app-endereco>
+            </div>
+          </div>
+
+        </form>
+        <div fxLayout="row" fxLayoutAlign="end center" class="btn-salvar">
+          <button mat-raised-button color="primary" (click)="saveReserve()">Enviar</button>
+        </div>
+      </div>
+      <div class="content-checkout-payment"  fxFlex="40">
+        <div class="header-ingresso">
+          <h3>Seu Ingresso</h3>
+        </div>
+        <span>teste</span>
+      </div>
+    </div>
+  </div>
+</mat-card>

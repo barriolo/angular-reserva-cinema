@@ -10,6 +10,9 @@
 
 <div class="container" fxLayout="row wrap" fxLayout.xs="column"  fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="start center">
   <div *ngFor="let movie of upcomingList | filterByName: search">
-      <app-movie-card [dataMovies]="movie"></app-movie-card>
+    <app-movie-card [dataMovies]="movie" *ngIf="upcomingList"></app-movie-card>
+  </div>
+  <div *ngIf="!upcomingList">
+    <span style="font-size: 130px;">Nenhum Filme encontrado!</span>
   </div>
 </div>

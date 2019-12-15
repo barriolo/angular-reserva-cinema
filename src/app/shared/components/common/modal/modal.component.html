@@ -1,0 +1,11 @@
+<div class="modal">
+  <div class="modal-header" fxLayout="row">
+    <div class="modal-close"(click)="close()">
+      <mat-icon class="icon-close">close</mat-icon>
+    </div>
+  </div>
+  <div class="modal-body">
+    <ng-content #body></ng-content>
+  </div>
+</div>
+  
