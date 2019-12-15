@@ -48,12 +48,14 @@ export class ReserveMovieUpcomingComponent implements OnInit {
   saveReserve() {
     this.serviceReserve.saveReserve(this.reserveForm.value)
       .subscribe((res: any) => {
-        console.log(res);
       });
   }
 
   haveCompanion() {
     this.isCompanion = !this.isCompanion;
+    if (this.isCompanion === false) {
+      this.reserveForm.removeControl('acompanhante');
+    }
   }
 
   getImages() {

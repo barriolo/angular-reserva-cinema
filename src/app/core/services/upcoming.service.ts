@@ -2,9 +2,6 @@ import { Injectable } from '@angular/core';
 import { ApiMoviedb } from 'src/app/moviedb-config';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { UpcomingMovie } from '../models/upcoming-model';
-import { Genres } from '../models/genres-model';
-import { runInThisContext } from 'vm';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +36,7 @@ export class UpcomingService extends ApiMoviedb {
   }
 
   saveReserve(reserve) {
+    console.log(reserve);
     return this.http.post('http://localhost/reserva', reserve)
       .pipe(
         map((res: any) => res)

@@ -48,7 +48,7 @@
 
         </form>
         <div fxLayout="row" fxLayoutAlign="end center" class="btn-salvar">
-          <button mat-raised-button color="primary" (click)="saveReserve()">Enviar</button>
+          <button mat-raised-button color="primary"[disabled]="!reserveForm?.valid" (click)="saveReserve()">Enviar</button>
         </div>
       </div>
       <div class="content-checkout-payment" fxFlex="35">
