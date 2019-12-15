@@ -5,7 +5,8 @@
         <div fxLayout="row" fxLayoutAlign="space-evenly center">
           <div class="field" fxFlex="50">
             <mat-form-field appearance="outline" class="field-100">
-                <input matInput placeholder="Cep" formControlName="cep" mask="00.000-000">
+                <input matInput placeholder="Cep" formControlName="cep" mask="00.000-000"
+                (blur)="getEndereco($event.target.value)">
             </mat-form-field>
           </div>
           <div class="field" fxFlex="50">

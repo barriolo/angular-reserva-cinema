@@ -10,6 +10,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PipesModule } from 'src/app/shared/components/pipes/pipes.module';
 import { FormsComponentModule } from 'src/app/shared/components/forms/forms.module';
 import { NgxMaskModule } from 'ngx-mask';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { Token } from 'src/app/core/interceptors/token';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 
@@ -29,13 +32,20 @@ import { NgxMaskModule } from 'ngx-mask';
     MatButtonModule,
     FormsComponentModule,
     MatCheckboxModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    HttpClientModule,
+    BrowserModule
   ],
   exports: [
     ListMoviesUpcomingComponent
   ],
   providers: [
-    UpcomingService
+    UpcomingService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: Token,
+      multi: true,
+    }
   ]
 })
 export class UpcomingModule { }

@@ -35,6 +35,13 @@ export class UpcomingService extends ApiMoviedb {
     return this.http.get(`${this.baseUrl}movie/${idMovie}/images?api_key=${this.apiKey}`)
       .pipe(
         map((res: any) => res)
-      )
+      );
+  }
+
+  saveReserve(reserve) {
+    return this.http.post('http://localhost/reserva', reserve)
+      .pipe(
+        map((res: any) => res)
+      );
   }
 }

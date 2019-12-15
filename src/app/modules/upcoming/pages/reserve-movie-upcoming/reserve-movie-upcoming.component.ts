@@ -46,7 +46,10 @@ export class ReserveMovieUpcomingComponent implements OnInit {
   }
 
   saveReserve() {
-    console.log(this.reserveForm);
+    this.serviceReserve.saveReserve(this.reserveForm.value)
+      .subscribe((res: any) => {
+        console.log(res);
+      });
   }
 
   haveCompanion() {
