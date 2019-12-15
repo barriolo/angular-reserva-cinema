@@ -4,3 +4,22 @@
 .logo-header {
   height: 60px;
 }
+.menu-header {
+  height: 100%;
+  padding-left: 30px;
+}
+.menu-item {
+  font-weight: 400;
+  height: 100%;
+  padding: 20px;
+  margin-left: 10px;
+}
+
+.menu-item:hover {
+  font-weight: 500;
+  background-color: rgb(255, 145, 0);
+  margin-right: 10px;
+  text-align: center;
+  cursor: pointer;
+  color: aliceblue;
+}

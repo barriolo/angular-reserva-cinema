@@ -12,7 +12,10 @@
   <div *ngFor="let movie of upcomingList | filterByName: search">
     <app-movie-card [dataMovies]="movie" *ngIf="upcomingList"></app-movie-card>
   </div>
-  <div *ngIf="!upcomingList">
-    <span style="font-size: 130px;">Nenhum Filme encontrado!</span>
+  <div *ngIf="!upcomingList" class="not-found-container" fxLayout="row" fxLayoutAlign="center center">
+    <span>Nenhum Filme encontrado!</span>
   </div>
+</div>
+<div>
+  <app-loading *ngIf="loading"></app-loading>
 </div>

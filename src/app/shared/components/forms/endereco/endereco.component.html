@@ -2,7 +2,7 @@
     <h2>Dados de Entrega</h2>
     <form [formGroup]="enderecoForm">
       <div fxLayout="column">
-        <div fxLayout="row" fxLayoutAlign="space-evenly center">
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-evenly center">
           <div class="field" fxFlex="50">
             <mat-form-field appearance="outline" class="field-100">
                 <input matInput placeholder="Cep" formControlName="cep" mask="00.000-000"
@@ -20,7 +20,7 @@
             <input matInput placeholder="complemento" formControlName="complemento">
           </mat-form-field>
         </div>
-        <div fxLayout="row">
+        <div fxLayout="row" fxLayout.xs="column">
           <div class="field" fxFlex="50">
             <mat-form-field appearance="outline" class="field-100">
                 <input matInput placeholder="País" formControlName="country">

@@ -46,7 +46,7 @@ export class EnderecoComponent implements OnInit {
         if (res.error === true) {
           const men = 'CEP inválido';
           this.openSnackBar(men, '');
-          console.log('aqui');
+          console.log('aqui =>', res );
         }
       });
     }

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GlobalValidator } from '../../../../shared/validators/validators-email';
 import { ActivatedRoute } from '@angular/router';
 import { UpcomingService } from 'src/app/core/services/upcoming.service';
+import { finalize } from 'rxjs/operators';
 @Component({
   selector: 'app-reserve-movie-upcoming',
   templateUrl: './reserve-movie-upcoming.component.html',
@@ -16,6 +17,7 @@ export class ReserveMovieUpcomingComponent implements OnInit {
   imagePoster: string;
   valorMovie: number;
   frete: number;
+  loading: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -59,7 +61,15 @@ export class ReserveMovieUpcomingComponent implements OnInit {
   }
 
   getImages() {
-    this.serviceReserve.getImagesByMovie(this.idMovie).subscribe((res: any) => {
+    this.loading = true;
+    this.serviceReserve.getImagesByMovie(this.idMovie)
+      .pipe(
+        finalize(() => {
+          setTimeout(() => {
+            this.loading = false;
+          }, 300);
+        })
+      ).subscribe((res: any) => {
       this.imagePoster = res.posters[0].file_path;
     });
   }

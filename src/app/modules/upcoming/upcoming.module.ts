@@ -13,6 +13,7 @@ import { NgxMaskModule } from 'ngx-mask';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { Token } from 'src/app/core/interceptors/token';
 import { BrowserModule } from '@angular/platform-browser';
+import { LoadingModule } from 'src/app/shared/components/loading/loading.module';
 
 
 
@@ -34,7 +35,8 @@ import { BrowserModule } from '@angular/platform-browser';
     MatCheckboxModule,
     NgxMaskModule.forRoot(),
     HttpClientModule,
-    BrowserModule
+    BrowserModule,
+    LoadingModule
   ],
   exports: [
     ListMoviesUpcomingComponent

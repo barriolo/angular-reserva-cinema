@@ -15,6 +15,7 @@ export class ListMoviesUpcomingComponent implements OnInit, OnDestroy {
   sub: any;
   genresList: Genres[];
   search: string;
+  loading: boolean;
   constructor(
     private serviceUpcoming: UpcomingService
   ) { }
@@ -28,9 +29,15 @@ export class ListMoviesUpcomingComponent implements OnInit, OnDestroy {
   }
 
   getListUpcomingMovies() {
+    this.loading = true;
     this.sub = this.serviceUpcoming.getUpcomingMovies()
     .pipe(
-      finalize(() => this.getListGenres())
+      finalize(() => {
+        this.getListGenres();
+        setTimeout(() => {
+          this.loading = false;
+        }, 200);
+      })
     )
     .subscribe((res: UpcomingMovie[]) => {
       this.upcomingList = res;

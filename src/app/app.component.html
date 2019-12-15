@@ -1,5 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <mat-toolbar style="width: 100%; background-color: #fff" class="shadow-header">
   <img src="../assets/wiz-logo.png" alt="Logo da empresa Wiz Soluções" class="logo-header">
+  <div fxLayout="row" fxLayoutAlign="center center" class="menu-header" *ngFor="let router of navegation">
+    <span class="menu-item" fxLayoutAlign="center center" (click)="gotToNavigation(router?.route)">{{ router?.title }}</span>
+  </div>
 </mat-toolbar>
 <router-outlet></router-outlet>
