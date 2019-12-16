@@ -2,3 +2,4 @@
 node_modules
 *.txt
 src/app/moviedb-config.ts
+dist
