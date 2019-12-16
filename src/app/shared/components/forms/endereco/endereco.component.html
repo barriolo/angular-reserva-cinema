@@ -23,7 +23,9 @@
         <div fxLayout="row" fxLayout.xs="column">
           <div class="field" fxFlex="50">
             <mat-form-field appearance="outline" class="field-100">
-                <input matInput placeholder="País" formControlName="country">
+              <mat-select formControlName="country" placeholder="País">
+                <mat-option *ngFor="let country of countries" [value]="country?.en_short_name">{{ country?.en_short_name }}</mat-option>
+              </mat-select>
             </mat-form-field>
           </div>
           <div class="field" fxFlex="50">

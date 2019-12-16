@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import { ApiMoviedb } from 'src/app/moviedb-config';
 import { HttpClient } from '@angular/common/http';
-import { BuscaCep } from '../models/busca-cep-model';
 import { map } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { Observable } from 'rxjs';
 
+const listCountry = 'assets/list-country.json';
 @Injectable({
   providedIn: 'root'
 })
 export class BuscarCepService extends ApiMoviedb {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
   ) {
     super();
    }
@@ -25,5 +26,12 @@ export class BuscarCepService extends ApiMoviedb {
       }
     }
     return of({});
+  }
+
+  getCountry(): Observable<any> {
+    return this.http.get(listCountry)
+    .pipe(
+      map((res: any) => res)
+    );
   }
 }

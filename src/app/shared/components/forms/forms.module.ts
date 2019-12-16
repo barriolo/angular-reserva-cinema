@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AcompanhanteComponent } from './acompanhante/acompanhante.component';
 import { EnderecoComponent } from './endereco/endereco.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatInputModule, MatFormFieldModule, MatSnackBarModule } from '@angular/material';
+import { MatInputModule, MatFormFieldModule, MatSnackBarModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask'
 
@@ -22,7 +22,10 @@ import { NgxMaskModule } from 'ngx-mask'
     ReactiveFormsModule,
     FormsModule,
     MatSnackBarModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule
   ],
   exports: [
     AcompanhanteComponent,

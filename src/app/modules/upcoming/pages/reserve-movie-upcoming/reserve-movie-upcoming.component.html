@@ -28,7 +28,9 @@
               </div>
               <div class="field" fxFlex="50">
                 <mat-form-field appearance="outline" class="field-100">
-                    <input matInput placeholder="Data de nascimento" formControlName="birthdayDate">
+                  <input matInput [matDatepicker]="picker" placeholder="Data de nascimento" formControlName="birthdayDate">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
               </div>
             </div>

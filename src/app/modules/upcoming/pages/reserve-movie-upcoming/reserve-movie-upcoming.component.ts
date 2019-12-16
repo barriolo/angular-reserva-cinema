@@ -4,10 +4,18 @@ import { GlobalValidator } from '../../../../shared/validators/validators-email'
 import { ActivatedRoute } from '@angular/router';
 import { UpcomingService } from 'src/app/core/services/upcoming.service';
 import { finalize } from 'rxjs/operators';
+
+import {DateAdapter, MAT_DATE_FORMATS} from '@angular/material/core';
+import { AppDateAdapter, APP_DATE_FORMATS } from 'src/app/shared/format-date/format-datepicker';
+
 @Component({
   selector: 'app-reserve-movie-upcoming',
   templateUrl: './reserve-movie-upcoming.component.html',
-  styleUrls: ['./reserve-movie-upcoming.component.css']
+  styleUrls: ['./reserve-movie-upcoming.component.css'],
+  providers: [
+    {provide: DateAdapter, useClass: AppDateAdapter},
+    {provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS}
+  ]
 })
 export class ReserveMovieUpcomingComponent implements OnInit, OnDestroy {
   reserveForm: FormGroup;
@@ -19,7 +27,6 @@ export class ReserveMovieUpcomingComponent implements OnInit, OnDestroy {
   frete: number;
   loading: boolean;
   sub: any;
-
   constructor(
     private formBuilder: FormBuilder,
     private router: ActivatedRoute,
@@ -41,7 +48,7 @@ export class ReserveMovieUpcomingComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
-  
+
   setFormReserve() {
     this.reserveForm = this.formBuilder.group({
       firtsName: ['', Validators.required],
@@ -53,6 +60,7 @@ export class ReserveMovieUpcomingComponent implements OnInit, OnDestroy {
   }
 
   saveReserve() {
+    console.log(this.reserveForm.value);
     this.sub =  this.serviceReserve.saveReserve(this.reserveForm.value)
       .subscribe((res: any) => {
       });
