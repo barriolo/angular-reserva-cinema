@@ -5,7 +5,7 @@ import { ReserveMovieUpcomingComponent } from './pages/reserve-movie-upcoming/re
 import { UpcomingService } from 'src/app/core/services/upcoming.service';
 import { CardsModule } from 'src/app/shared/components/cards/cards.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatInputModule, MatFormFieldModule, MatIconModule, MatCardModule, MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { MatInputModule, MatFormFieldModule, MatIconModule, MatCardModule, MatButtonModule, MatCheckboxModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PipesModule } from 'src/app/shared/components/pipes/pipes.module';
 import { FormsComponentModule } from 'src/app/shared/components/forms/forms.module';
@@ -14,7 +14,6 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { Token } from 'src/app/core/interceptors/token';
 import { BrowserModule } from '@angular/platform-browser';
 import { LoadingModule } from 'src/app/shared/components/loading/loading.module';
-
 
 
 @NgModule({
@@ -36,7 +35,9 @@ import { LoadingModule } from 'src/app/shared/components/loading/loading.module'
     NgxMaskModule.forRoot(),
     HttpClientModule,
     BrowserModule,
-    LoadingModule
+    LoadingModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports: [
     ListMoviesUpcomingComponent

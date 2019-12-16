@@ -14,6 +14,9 @@ export class EnderecoComponent implements OnInit {
   // tslint:disable-next-line: no-output-rename
   @Output('form') form: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
   enderecoForm: FormGroup;
+  sub: any;
+  countries: any;
+
   constructor(
     private formBuilder: FormBuilder,
     private cepService: BuscarCepService,
@@ -24,6 +27,7 @@ export class EnderecoComponent implements OnInit {
 
   ngOnInit() {
     this.form.emit(this.enderecoForm);
+    this.getCountry();
   }
 
   setFormEndereco() {
@@ -35,6 +39,10 @@ export class EnderecoComponent implements OnInit {
       telephone: ['', Validators.required],
       complemento: ['', Validators.required]
     });
+  }
+
+  getCountry() {
+    this.cepService.getCountry().subscribe(res => this.countries = res);
   }
 
   getEndereco(cep) {

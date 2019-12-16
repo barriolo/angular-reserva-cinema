@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GlobalValidator } from '../../../../shared/validators/validators-email';
 import { ActivatedRoute } from '@angular/router';
 import { UpcomingService } from 'src/app/core/services/upcoming.service';
 import { finalize } from 'rxjs/operators';
+
+import {DateAdapter, MAT_DATE_FORMATS} from '@angular/material/core';
+import { AppDateAdapter, APP_DATE_FORMATS } from 'src/app/shared/format-date/format-datepicker';
+
 @Component({
   selector: 'app-reserve-movie-upcoming',
   templateUrl: './reserve-movie-upcoming.component.html',
-  styleUrls: ['./reserve-movie-upcoming.component.css']
+  styleUrls: ['./reserve-movie-upcoming.component.css'],
+  providers: [
+    {provide: DateAdapter, useClass: AppDateAdapter},
+    {provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS}
+  ]
 })
-export class ReserveMovieUpcomingComponent implements OnInit {
+export class ReserveMovieUpcomingComponent implements OnInit, OnDestroy {
   reserveForm: FormGroup;
   isCompanion: boolean = false;
   idMovie: number;
@@ -18,7 +26,7 @@ export class ReserveMovieUpcomingComponent implements OnInit {
   valorMovie: number;
   frete: number;
   loading: boolean;
-
+  sub: any;
   constructor(
     private formBuilder: FormBuilder,
     private router: ActivatedRoute,
@@ -37,6 +45,10 @@ export class ReserveMovieUpcomingComponent implements OnInit {
     this.frete = 10;
   }
 
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
+
   setFormReserve() {
     this.reserveForm = this.formBuilder.group({
       firtsName: ['', Validators.required],
@@ -48,7 +60,8 @@ export class ReserveMovieUpcomingComponent implements OnInit {
   }
 
   saveReserve() {
-    this.serviceReserve.saveReserve(this.reserveForm.value)
+    console.log(this.reserveForm.value);
+    this.sub =  this.serviceReserve.saveReserve(this.reserveForm.value)
       .subscribe((res: any) => {
       });
   }
@@ -62,7 +75,7 @@ export class ReserveMovieUpcomingComponent implements OnInit {
 
   getImages() {
     this.loading = true;
-    this.serviceReserve.getImagesByMovie(this.idMovie)
+    this.sub = this.serviceReserve.getImagesByMovie(this.idMovie)
       .pipe(
         finalize(() => {
           setTimeout(() => {
