@@ -23,16 +23,18 @@ npm install ou yarn install
 
 ## Iniciando o Projeto
 
+Acesse a pasta do repositório e execute o comando a baixo.
+O projeto esta dividido em 2 branches master e development.
+
 ```bash
-Acesse a pasta do repositório e execute o comando a baixo
 
 ng serve ou ng s
 ```
-
+ 
 ## Build do Projeto
 
-```bash
 Acesse a pasta do repositório e execute o comando a baixo
 
+```bash
 ng build --prod
 ```
