@@ -1,4 +1,4 @@
-# Projeto Frontend teste Wiz
+# Projeto Frontend teste
 
 [![Versões](https://img.shields.io/badge/angular-8-green)](https://img.shields.io/badge/angular-8-green)
 [![Versões](https://img.shields.io/badge/Angular%20Cli-8.1.1-green)](https://img.shields.io/badge/Angular%20Cli-8.1.1-green)
