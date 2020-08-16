@@ -8,7 +8,7 @@
   </div>
 </div>
 
-<div class="container" fxLayout="row wrap" fxLayout.xs="column"  fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="start center">
+<div class="container" fxLayout="row wrap" fxLayout.xs="column"  fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center center">
   <div *ngFor="let movie of upcomingList | filterByName: search">
     <app-movie-card [dataMovies]="movie" *ngIf="upcomingList"></app-movie-card>
   </div>

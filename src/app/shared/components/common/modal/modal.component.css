@@ -17,6 +17,7 @@ p {
   cursor: pointer;
   width: 25px;
   height: 25px;
+  padding-right: 10px;
 }
 
 .modal-header {
@@ -43,10 +44,10 @@ p {
   display: flex;
   justify-content: flex-end;
   padding: 20px;
-  padding-top: 10px;
+  padding-top: 10px; 
 }
 
 .icon-close {
   color: #fff;
-  margin-top: 10px;
+  margin: 10px 10px 0px 0px;
 }

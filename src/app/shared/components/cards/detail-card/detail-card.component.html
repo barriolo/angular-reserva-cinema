@@ -32,10 +32,10 @@
               }" *ngIf="i < 3">{{ genre?.name | truncate: 10 }}</span>
             </div>
           </div>
-          <div class="info" fxHide.xs>
+          <div class="info" fxHide.gt-xs fxHide.gt-sm>
             <p>{{ (data?.overview) || 'Não possui descrição'}}</p>
           </div>
-          <div class="info" fxShow.xs fxHide.lg>
+          <div class="info" fxHide.lg>
             <p>{{ (data?.overview | truncate: 140) || 'Não possui descrição'}}</p>
           </div>
         </div>
