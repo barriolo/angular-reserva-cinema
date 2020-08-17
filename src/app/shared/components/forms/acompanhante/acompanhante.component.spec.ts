@@ -42,4 +42,48 @@ describe('AcompanhanteComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should return the invalid form', () => {
+    component.setFormAcompanhante();
+    component.acompanhanteForm.get('firtsName').setValue(null);
+    component.acompanhanteForm.get('lastName').setValue(null);
+    component.acompanhanteForm.get('cpf').setValue('123');
+    component.acompanhanteForm.get('birthdayDate').setValue(null);
+    component.acompanhanteForm.get('email').setValue('aefafea');
+    const invalid = component.acompanhanteForm.invalid;
+    expect(invalid).toBeTruthy();
+  });
+
+  it('should return the valid form', () => {
+    component.setFormAcompanhante();
+    component.acompanhanteForm.get('firtsName').setValue('Joe');
+    component.acompanhanteForm.get('lastName').setValue('Doe');
+    component.acompanhanteForm.get('cpf').setValue('12345678901');
+    component.acompanhanteForm.get('birthdayDate').setValue('27/11/1989');
+    component.acompanhanteForm.get('email').setValue('joedoe@test.com');
+    const invalid = component.acompanhanteForm.invalid;
+    expect(invalid).toBeFalsy();
+  });
+
+  it('should return invalid form because email is wrong', () => {
+    component.setFormAcompanhante();
+    component.acompanhanteForm.get('firtsName').setValue('Joe');
+    component.acompanhanteForm.get('lastName').setValue('Doe');
+    component.acompanhanteForm.get('cpf').setValue('12345678901');
+    component.acompanhanteForm.get('birthdayDate').setValue('27/11/1989');
+    component.acompanhanteForm.get('email').setValue('joedoe');
+    const invalid = component.acompanhanteForm.invalid;
+    expect(invalid).toBeTruthy();
+  });
+
+  it('should return invalid form because cpf is wrong', () => {
+    component.setFormAcompanhante();
+    component.acompanhanteForm.get('firtsName').setValue('Joe');
+    component.acompanhanteForm.get('lastName').setValue('Doe');
+    component.acompanhanteForm.get('cpf').setValue('123456789');
+    component.acompanhanteForm.get('birthdayDate').setValue('27/11/1989');
+    component.acompanhanteForm.get('email').setValue('joedoe@teste.com');
+    const invalid = component.acompanhanteForm.invalid;
+    expect(invalid).toBeTruthy();
+  });
 });

@@ -8,7 +8,7 @@ export class GlobalValidator {
 
     // tslint:disable-next-line: no-bitwise
     if (control.value !== '' && (control.value.length <= 5 || !emailRegex.test(control.value) )) {
-        return { emailInvalid: true };
+      return { emailInvalid: true };
     }
     return null;
   }

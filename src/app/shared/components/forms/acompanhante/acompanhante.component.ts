@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import {DateAdapter, MAT_DATE_FORMATS} from '@angular/material/core';
 import { AppDateAdapter, APP_DATE_FORMATS } from 'src/app/shared/format-date/format-datepicker';
+import { GlobalValidator } from 'src/app/shared/validators/validators-email';
 
 @Component({
   selector: 'app-acompanhante',
@@ -33,9 +34,9 @@ export class AcompanhanteComponent implements OnInit {
     this.acompanhanteForm = this.formBuilder.group({
       firtsName: ['', Validators.required],
       lastName: ['', Validators.required],
-      cpf: ['', Validators.required],
+      cpf: ['', [Validators.required, Validators.minLength(11)]],
       birthdayDate: ['', Validators.required],
-      email: ['', Validators.required]
+      email: ['', [Validators.required, GlobalValidator.emailValidator]]
     });
   }
 }
