@@ -31,6 +31,13 @@ O projeto esta dividido em 2 branches master e development.
 ng serve ou ng s
 ```
  
+## Test do Projeto
+
+Acesse a pasta do repositório e execute o comando a baixo
+
+```bash
+ng test
+```
 ## Build do Projeto
 
 Acesse a pasta do repositório e execute o comando a baixo
