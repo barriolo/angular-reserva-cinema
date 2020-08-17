@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ModalComponent } from './modal.component';
+import { MatIconModule } from '@angular/material';
+import { CommonModule } from '@angular/common';
 
 describe('ModalComponent', () => {
   let component: ModalComponent;
@@ -8,7 +10,11 @@ describe('ModalComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModalComponent ]
+      declarations: [ ModalComponent ],
+      imports: [
+        CommonModule,
+        MatIconModule
+      ]
     })
     .compileComponents();
   }));

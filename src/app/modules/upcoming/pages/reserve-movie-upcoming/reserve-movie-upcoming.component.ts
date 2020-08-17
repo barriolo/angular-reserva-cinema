@@ -1,12 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GlobalValidator } from '../../../../shared/validators/validators-email';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UpcomingService } from 'src/app/core/services/upcoming.service';
 import { finalize } from 'rxjs/operators';
 
 import {DateAdapter, MAT_DATE_FORMATS} from '@angular/material/core';
 import { AppDateAdapter, APP_DATE_FORMATS } from 'src/app/shared/format-date/format-datepicker';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-reserve-movie-upcoming',
@@ -29,14 +30,16 @@ export class ReserveMovieUpcomingComponent implements OnInit, OnDestroy {
   sub: any;
   constructor(
     private formBuilder: FormBuilder,
-    private router: ActivatedRoute,
-    private serviceReserve: UpcomingService
+    private activeRoute: ActivatedRoute,
+    private serviceReserve: UpcomingService,
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {
    }
 
   ngOnInit() {
     this.setFormReserve();
-    this.router.params.subscribe(params => {
+    this.activeRoute.params.subscribe(params => {
       this.idMovie = params['id'];
       this.nameMovie = params['title'];
     });
@@ -60,9 +63,12 @@ export class ReserveMovieUpcomingComponent implements OnInit, OnDestroy {
   }
 
   saveReserve() {
-    console.log(this.reserveForm.value);
+    this.router.navigateByUrl('movies-upcoming');
     this.sub =  this.serviceReserve.saveReserve(this.reserveForm.value)
       .subscribe((res: any) => {
+        this.snackBar.open('Sucesso!', 'Reservar realizada', {
+          duration: 2 * 1000,
+        });
       });
   }
 

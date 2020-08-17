@@ -51,12 +51,12 @@ export class EnderecoComponent implements OnInit {
       this.cepService.getCep(cep)
       .subscribe((res: any) => {
         this.enderecoForm.patchValue(res);
-        if (res.error === true) {
-          const men = 'CEP inválido';
-          this.openSnackBar(men, '');
-          console.log('aqui =>', res );
-        }
-      });
+      },
+      (err) => {
+        const men = 'Erro!';
+        this.openSnackBar(men, 'Verifique o CEP informado.');
+      }
+      );
     }
   }
 

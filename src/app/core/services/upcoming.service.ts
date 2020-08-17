@@ -36,7 +36,6 @@ export class UpcomingService extends ApiMoviedb {
   }
 
   saveReserve(reserve) {
-    console.log(reserve);
     return this.http.post('http://localhost/reserva', reserve)
       .pipe(
         map((res: any) => res)

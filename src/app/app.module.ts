@@ -24,7 +24,7 @@ import { MatToolbarModule } from '@angular/material';
     UpcomingModule,
     CardsModule,
     FlexLayoutModule,
-    MatToolbarModule
+    MatToolbarModule,
   ],
   providers: [
     UpcomingService,

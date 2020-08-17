@@ -37,7 +37,7 @@ import { LoadingModule } from 'src/app/shared/components/loading/loading.module'
     BrowserModule,
     LoadingModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
   ],
   exports: [
     ListMoviesUpcomingComponent
