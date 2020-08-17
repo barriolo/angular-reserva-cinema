@@ -1,4 +1,4 @@
-import { TestBed, fakeAsync, tick } from '@angular/core/testing';
+import { TestBed, fakeAsync, tick, async } from '@angular/core/testing';
 
 import { BuscarCepService } from './buscar-cep.service';
 import {
@@ -11,16 +11,19 @@ describe('BuscarCepService', () => {
   let httpMock: HttpTestingController;
   let mockService: BuscarCepService;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule
       ],
       providers: [
-        HttpClient ,
         BuscarCepService
       ]
-    });
+    }).compileComponents();
+
+  });
+
+  beforeEach(() => {
     mockService = TestBed.get(BuscarCepService);
     httpMock = TestBed.get(HttpTestingController);
   });
@@ -61,7 +64,7 @@ describe('BuscarCepService', () => {
   }));
 
   it('should not return a zip code because a invalid cep', fakeAsync(() => {
-    const cep = '713';
+    const cep = '11111111';
     const endereco = {};
     mockService.getCep(cep).subscribe((res) => {
       expect(res).toEqual(endereco);

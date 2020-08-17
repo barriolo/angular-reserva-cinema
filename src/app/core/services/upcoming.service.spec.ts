@@ -1,24 +1,26 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, async } from '@angular/core/testing';
 
 import { UpcomingService } from './upcoming.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { HttpClient } from '@angular/common/http';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 describe('UpcomingService', () => {
+  let httpMock: HttpTestingController;
   let service: UpcomingService;
-  beforeEach(() => {
+  beforeEach( async () => {
     TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule
       ],
       providers: [
-        HttpClient,
+        UpcomingService,
       ]
-    });
+    }).compileComponents();
   });
-  service = TestBed.get(UpcomingService);
 
-
+  beforeEach(() => {
+    service = TestBed.get(UpcomingService);
+    httpMock = TestBed.get(HttpTestingController);
+  });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
