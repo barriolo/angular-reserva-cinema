@@ -1,8 +1,8 @@
 version: '3.5'
 
 services:
-  curia_cooperado:
-    container_name: curia_cooperado
+  wiz:
+    container_name: wiz
     build:
       context: ./
       dockerfile: Dockerfile
