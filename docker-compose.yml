@@ -1,0 +1,16 @@
+version: '3.5'
+
+services:
+  curia_cooperado:
+    container_name: curia_cooperado
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        nowDate: $NOWDATE
+    volumes:
+      - './src:/src/app'
+    expose:
+      - '80'
+    ports:
+      - '8080:80'
